@@ -153,4 +153,5 @@ python manage.py shell
 
 For full production deployment steps on a VPS, see:
 
+- [README_DOCKER_DEPLOYMENT.md](README_DOCKER_DEPLOYMENT.md) (recommended)
 - [README_VPS_DEPLOYMENT.md](README_VPS_DEPLOYMENT.md)
