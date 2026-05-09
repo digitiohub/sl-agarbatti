@@ -1,0 +1,434 @@
+{% load static %}
+{% load category_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The above 3 meta tags *must* come first in the head -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="CHANGE-ME">
+    <!-- Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CHANGE-ME">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:site" content="www.slagarbatti.com">
+    <meta name="twitter:creator" content="S.L. Agarbatti Co.">
+    <meta name="twitter:title" content="S.L. Agarbatti Co. — notable manufacturer, supplier and exporter in india">
+    <meta name="twitter:description" content="S.L. Agarbatti Co. are a notable manufacturer, supplier and exporter of Eco Pack Agarbatti, Small Pack Agarbatti, Incense Stick">
+    <meta name="twitter:image" content="">
+    <!-- Open Graph (OG) meta tags -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="www.slagarbatti.com" />
+    <meta property="og:site_name" content="S.L. Agarbatti Co." />
+    <meta property="og:title" content="S.L. Agarbatti Co. — notable manufacturer, supplier and exporter in india" />
+    <meta property="og:description" content="S.L. Agarbatti Co. are a notable manufacturer, supplier and exporter of Eco Pack Agarbatti, Small Pack Agarbatti, Incense Stick" />
+    <!-- For the og:image content, replace the # with a link of an image -->
+    <meta property="og:image" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="S.L. Agarbatti Co. are a notable manufacturer, supplier and exporter of Eco Pack Agarbatti, Small Pack Agarbatti, Incense Stick" />
+    <meta name="author" content="S.L. Agarbatti Co. — notable manufacturer, supplier and exporter in india" />
+    <title>{% block title %}SL Agarbatti | {{ page_name }}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/logo/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/timeline.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/timeline-cards.css' %}">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"> -->
+    <style>
+#effect-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.smoke-particle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(220, 220, 220, 0.15);
+  filter: blur(15px);
+  animation: smokeDrift 2s ease-out forwards;
+}
+
+@keyframes smokeDrift {
+  0% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  70% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.5) translateY(-50px) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2) translateY(-100px) rotate(360deg);
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div class="loader-overlay">
+        <div class="loader "></div>
+    </div>
+
+    <div id="effect-container"></div>
+    <div id="main">
+        <nav class="sticky-top">
+            <div class="navbarss inner-navs">
+                <i class='bx bx-menu'></i>
+                <div><a href="{% url 'home' %}" class="logoss"><img
+                            src="{% static 'assets/images/logo/sl_logo.webp' %}" alt="brand-logo"></a></div>
+                <div class="nav-linksss data">
+                    <div class="sidebar-logo">
+                        <a href="{% url 'home' %}" class="logoss"><img
+                                src="{% static 'assets/images/logo/sl_logo.webp' %}" alt="brand-logo"></a>
+                        <i class='bx bx-x'></i>
+                    </div>
+                    <ul class="links inner-links">
+                        <li><a href="{% url 'home' %}"
+                                class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                        </li>
+                        <li><a href="{% url 'about' %}"
+                                class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">About
+                                Us</a></li>
+
+                        <li>
+                            <a href="#" id="products-link"
+                                class="{% if request.resolver_match.url_name == 'products' %}active{% endif %}">
+                                Products
+                            </a>
+
+                            <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
+
+                            {% category_tree as tree_categories %}
+                            {% if tree_categories %}
+                            <ul class="htmlCss-sub-menu sub-menu p-0">
+                                {# Render all categories for the dropdown menu #}
+                                {% for tree_category in tree_categories %}
+                                {% if tree_category.depth == 1 %}
+                                <li>
+                                    <a href="{% url 'products' main_category_slug=tree_category.slug %}">
+                                        {{ tree_category.name }}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </li>
+
+                        <li><a href="https://shop.slagarbatti.com/"
+                                target="_blank"
+                            >Shop Now</a>
+                        </li>
+
+                        <li><a href="{% url 'service' %}"
+                                class="{% if request.resolver_match.url_name == 'service' %}active{% endif %}">Services</a>
+                        </li>
+
+                        <li><a href="{% url 'gallery' %}"
+                                class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">Gallery</a>
+                        </li>
+
+                        <li><a href="{% url 'supply-chain' %}"
+                                class="{% if request.resolver_match.url_name == 'supply-chain' %}active{% endif %}">Supply
+                                Chain</a></li>
+
+                        <li><a href="{% url 'faq' %}"
+                                class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}">FAQ</a>
+                        </li>
+
+                        <li><a href="{% url 'contact-us' %}"
+                                class="{% if request.resolver_match.url_name == 'contact-us' %}active{% endif %}">Contact
+                                us</a></li>
+                        <!-- <li><a href="{% url 'careers' %}"
+                                class="{% if request.resolver_match.url_name == 'careers' %}active{% endif %}">Careers
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+
+                <div class="header-icon">
+                    <button type="button" class="cssbuttons-io header-btn">
+                        <a href="{% static 'assets/pdf/Sl_Agarbatti_Product_Catalog.pdf' %}" download><i
+                                class="ri-download-2-line"></i>Download
+                            Catalog</a>
+                    </button>
+                    <!-- <i class='bx bx-globe'></i> -->
+                </div>
+            </div>
+        </nav>
+
+
+        {% block layout %}
+
+        <!-- ALL HTML WILL INSIDE THIS BLOCK EXCEPTING HEADER AND FOOTER -->
+
+        {% endblock %}
+
+        <footer class=" footerr" style="background-color:  #FDEBEB;">
+            <div class="container mob-end">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <img src="{% static 'assets/images/logo/sl_logo.webp' %}" alt="brandlogo" class="footerimage">
+                        <p class="footerpara">Founded in the year 1996, SL Agarbatti Company is known for its
+                            exceptional quality products. We are an experienced firm and have been sincerely serving the
+                            industry for more than two decades. Our company is based in Mumbai, Maharashtra, India.</p>
+                    </div>
+                    <div class="col-12 col-md-6  col-lg-3 ">
+                        <div class="footertitle">
+                            <h2>Quick Links</h2>
+                        </div>
+                        <div class="footerlist">
+                            <ul class="p-0">
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'home' %}">Home</a></li>
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'about' %}">About</a></li>
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'service' %}">Services</a></li>
+                                {% category_tree as tree_categories %}
+                                {% if tree_categories %}
+                                {% with tree_categories|first as first_category %}
+                                <li>
+                                    <i class="ri-arrow-right-s-line"></i>
+                                    <a href="{% url 'products' main_category_slug=first_category.slug %}">Products</a>
+                                </li>
+                                {% endwith %}
+                                {% endif %}
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'faq' %}">FAQ</a></li>
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'gallery' %}">Gallery</a></li>
+                                <li><i class="ri-arrow-right-s-line"></i><a href="{% url 'contact-us' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6  col-lg-3">
+                        <div class="footertitle">
+                            <h2>Products</h2>
+                        </div>
+                        <div class="footerlist">
+                            {% category_tree as tree_categories %}
+                {% if tree_categories %}
+                <ul class="htmlCss-sub-menu sub-menu p-0">
+                    {% for tree_category in tree_categories %}
+                    {% if tree_category.depth == 1 %}
+                    <li>
+                        <i class="ri-arrow-right-s-line"></i>
+                        <a
+                            href="{% url 'products' main_category_slug=tree_category.slug %}">{{ tree_category.name }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6  col-lg-3">
+
+                        <div class="footertitle">
+                            <h2>Contact</h2>
+                        </div>
+
+                        <div class="footerlist">
+                            <ul class="p-0">
+                                <li> <img src="{% static 'assets/images/contact/location-1.png' %}" alt=""
+                                        class="footer-logos"><a href="https://maps.app.goo.gl/uUTqMnSJ2Ctm4xpy5"
+                                        target="_blank">Shop no. 8 / 9,
+                                        Lucky Compound, Sahyadri Nagar, Bhandup West, Mumbai, Maharashtra 400078</a>
+                                </li>
+                                <li> <img src="{% static 'assets/images/contact/email-1.png' %}" alt=""
+                                        class="footer-logos"><a href="mailto:Info@slagarbatti.com"
+                                        target="_blank">Info@slagarbatti.com</a></li>
+                                <li> <img src="{% static 'assets/images/contact/phone-1.png' %}" alt=""
+                                        class="footer-logos"><a href="tel:+919773802420">+91 9773802420</a></li>
+                                <li><img src="{% static 'assets/images/contact/phone-1.png' %}" alt=""
+                                        class="footer-logos"><a href="tel:+917045412727">+91 7045412727 </a></li>
+                            </ul>
+                        </div>
+                        <div class="socialmedia">
+                            <ul class="p-0">
+                                <li><a href="https://www.facebook.com/slagarbatti/" target="_blank"><i class="ri-facebook-line"></i></a></li>
+                                <li><a href="https://www.instagram.com/sl.agarbatti/" target="_blank"><i
+                                            class="ri-instagram-line"></i></a></li>
+                                <li><a href="https://www.youtube.com/@s.l.agarbatti1504" target="_blank"><i
+                                            class="ri-youtube-line"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/s-l-agarbatti-company?trk=feed-detail_main-feed-card_feed-actor-name" target="_blank"><i class="ri-linkedin-line"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-line" style="background-color: #B83036;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 bs-line">
+                            <p class="m-0">Copyright @ 2024 SL Agarbatti. All Rights Reserved.</p>
+                            <ul class="m-0 p-0">
+                                <li><a href="{% url 'terms-and-privacy' %}">Privacy</a></li>
+                                <li><a href="{% url 'terms-and-privacy' %}">Term & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+
+    <script>
+const effectContainer = document.getElementById('effect-container');
+const smokeColors = [
+  'rgba(220, 220, 220, 0.2)'   // Light gray
+
+];
+
+// Track previous mouse positions to create a smooth line
+let previousX = null;
+let previousY = null;
+
+function createSmokeParticle(x, y) {
+  // Create smoke particle
+  const smoke = document.createElement('div');
+  smoke.className = 'smoke-particle';
+
+  // Randomize size with subtle variation
+  const size = Math.random() * 20 + 20; // 20-40px
+  smoke.style.width = `${size}px`;
+  smoke.style.height = `${size}px`;
+
+  // Position the smoke
+  smoke.style.left = `${x}px`;
+  smoke.style.top = `${y}px`;
+
+  // Random rotation and color
+  const rotation = Math.random() * 360;
+  smoke.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+  smoke.style.backgroundColor =
+    smokeColors[Math.floor(Math.random() * smokeColors.length)];
+
+  // Add to container
+  effectContainer.appendChild(smoke);
+
+  // Remove the smoke after animation
+  setTimeout(() => {
+    smoke.remove();
+  }, 2000);
+}
+
+function createSmokeTrail(currentX, currentY) {
+  // If this is the first move, just set previous positions
+  if (previousX === null || previousY === null) {
+    previousX = currentX;
+    previousY = currentY;
+    return;
+  }
+
+  // Calculate the number of intermediate points
+  const distance = Math.sqrt(
+    Math.pow(currentX - previousX, 2) + Math.pow(currentY - previousY, 2)
+  );
+  const numPoints = Math.ceil(distance / 5); // More points for smoother trail
+
+  // Create interpolated points
+  for (let i = 0; i <= numPoints; i++) {
+    const t = i / numPoints;
+    const interpolatedX = previousX + t * (currentX - previousX);
+    const interpolatedY = previousY + t * (currentY - previousY);
+
+    // Subtle randomness for a natural look
+    const randomOffsetX = Math.random() * 10 - 5; // Smaller range
+    const randomOffsetY = Math.random() * 10 - 5; // Smaller range
+
+    createSmokeParticle(interpolatedX + randomOffsetX, interpolatedY + randomOffsetY);
+  }
+
+  // Update previous positions
+  previousX = currentX;
+  previousY = currentY;
+}
+
+// Add mousemove listener to create smoke trail
+document.addEventListener('mousemove', (e) => {
+  createSmokeTrail(e.clientX, e.clientY);
+});
+
+</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- <script src="{% static 'assets/js/fancy.js' %}"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // loadder
+        // Function to hide the loader
+        function hideLoader() {
+            document.querySelector('.loader-overlay').classList.add('d-none');
+        }
+
+        // Show the loader while the page is loading
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.loader-overlay').classList.remove('d-none');
+        });
+
+        // Hide the loader once the page is fully loaded
+        window.addEventListener('load', hideLoader);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="{% static 'assets/js/main.js' %}"></script>
+        {% if request.resolver_match.url_name == 'about' %}
+        <script src="{% static 'assets/js/about.js' %}"></script>
+        {% endif %}
+
+
+</body>
+
+</html>

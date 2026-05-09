@@ -1,0 +1,134 @@
+{% extends "sl/base.html" %}
+{% load static %}
+{% load category_tags %}
+{% load image_tags %}
+
+{% block layout %}
+
+<div id="descriptionssection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" id="pagesection">
+                <h1>Products Descriptions</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products-description pb-5 ">
+    <div class="container">
+        <div class="row">
+            <!-- Product Images -->
+            <div class="col-12 col-md-6">
+                <div class="row">
+                    <div class="col-12 col-lg-2 order-2 order-lg-1 side-section thumbnails">
+                        <!-- Thumbnails -->
+                        {% for image in product.images.all %}
+                        <div class="side-images">
+                            <img src="{{ image.original.url }}" alt="{{ product.title }} Thumbnail"
+                                class="img-fluid thumbnail" />
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-12 col-lg-10 order-1 order-lg-2 main-image">
+                        <!-- Main Image -->
+                         <div class="pro-details">
+                        {% if product.images.first %}
+                        <img src="{{ product.images.first.original.url }}" alt="{{ product.title }}" class="img-fluid"
+                            id="mainImage" />
+                        {% else %}
+                        <img src="{% static 'assets/images/product/no-image.jpg' %}" alt="No Image" class="img-fluid"
+                            id="mainImage" />
+                        {% endif %}
+                        </div>
+                        <button class="prevs" ><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="nexts" ><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-12 col-md-6">
+                <h1 class="description-heading">{{ product.title }}</h1>
+            
+                <p class="description-para">
+                    {{ product.description|safe }}
+                </p>
+                <button type="button" class="cssbuttons-io description-btn">
+                    <a href="{% url 'contact-us' %}">Send Enquiry</a>
+                </button>
+            
+                {% if product.additional_info %}
+                    <button type="button" class="cssbuttons-io description-btn" onclick="openTab('Information')">
+                        <a href="#">Additional Information</a>
+                    </button>
+                {% endif %}
+            
+                <!-- Tabs -->
+                <div>
+                    <div id="tab-content-group">
+                        <div class="tab-content-list" id="Information" style="display: none;">
+                            <p>
+                                {{ product.additional_info|safe }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+  $('#popup-gallery').magnificPopup({
+  delegate: 'a',
+  type: 'image',
+  gallery: {
+    enabled: true,
+    navigateByImgClick: true,
+    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+  },
+  callbacks: {
+    elementParse: function(item) {
+      console.log(item.el[0].className);
+      if(item.el[0].className == 'video') {
+        item.type = 'iframe',
+        item.iframe = {
+           patterns: {
+             youtube: {
+               index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
+
+               id: 'v=', // String that splits URL in a two parts, second part should be %id%
+                // Or null - full URL will be returned
+                // Or a function that should return %id%, for example:
+                // id: function(url) { return 'parsed id'; } 
+
+               src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe. 
+             },
+             vimeo: {
+               index: 'vimeo.com/',
+               id: '/',
+               src: '//player.vimeo.com/video/%id%?autoplay=1'
+             },
+             gmaps: {
+               index: '//maps.google.',
+               src: '%id%&output=embed'
+             }
+           }
+        }
+      } else {
+         item.type = 'image',
+         item.tLoading = 'Loading image #%curr%...',
+         item.mainClass = 'mfp-img-mobile',
+         item.image = {
+           tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+         }
+      }
+
+    }
+  }
+});
+</script>
+
+{% endblock %}

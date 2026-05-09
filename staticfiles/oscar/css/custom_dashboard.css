@@ -1,0 +1,201 @@
+    .sidebar {
+        font-size: large;
+        background-color: aliceblue;
+    }
+
+    .navbar-nav.flex-column {
+        width: 100%;
+        height: 100vh;
+        transition: width 0.3s;
+    }
+
+    .navbar-nav.flex-column.collapsed {
+        width: 80px;
+    }
+
+    .navbar-nav.flex-column .nav-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .navbar-nav.flex-column .nav-link {
+        padding: 0.4rem 1.5rem 0.4rem 3.5rem;
+        font-weight: 400;
+        color: #7b8190;
+        margin: 0;
+        background-color: aliceblue;
+        font-size: 20px;
+    }
+
+    .navbar-nav.flex-column .nav-link:hover {
+        /* background-color: rgb(10, 10, 10); */
+        color: #383c40;
+    }
+
+    .navbar-nav.flex-column .dropdown-menu {
+        width: 100%;
+    }
+
+    .navbar-nav.flex-column .dropdown-menu .dropdown-item {
+        width: 100%;
+        color: #000;
+        font-size: 15px;
+    }
+
+    .navbar-nav.flex-column .dropdown-menu .dropdown-item:hover {
+        background-color: #f8f9fa;
+        color: #000;
+    }
+
+    #toggle-sidebar-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        /* Set the button to the right */
+        z-index: 1000;
+    }
+
+    #dropdownMenuButton {
+        background-color: steelblue;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: 0.25s ease;
+        box-shadow: 0px 0px 5px #aaa;
+    }
+
+    .search {
+        background-color: #e1ecf4;
+        border-radius: 3px;
+        border: 1px solid #7aa7c7;
+        box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+        box-sizing: border-box;
+        color: #39739d;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.15385;
+        margin: 0;
+        outline: none;
+        padding: 8px .8em;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: baseline;
+        white-space: nowrap;
+    }
+
+    .search:hover,
+    .search:focus {
+        background-color: #b3d3ea;
+        color: #2c5777;
+    }
+
+    .search:focus {
+        box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+    }
+
+    .search:active {
+        background-color: #a0c7e4;
+        box-shadow: none;
+        color: #2c5777;
+    }
+
+    .add-btn {
+        background-color: #222;
+        border-radius: 4px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-right: 25px;
+        max-width: none;
+        height: 40px;
+        min-width: 10px;
+        outline: none;
+        overflow: hidden;
+        padding: 9px 20px 8px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .add-btn:hover,
+    .add-btn:focus {
+        opacity: .75;
+    }
+
+    .upload-image li>div {
+        background: none;
+    }
+
+    .btn-info.disabled,
+    .btn-info:disabled {
+        background-color: #222;
+        border-radius: 4px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Farfetch Basis",
+            "Helvetica Neue",
+            Arial,
+            sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        /* margin-right: 0px; */
+        max-width: none;
+        height: 40px;
+        /* min-width: 38px; */
+        outline: none;
+        overflow: hidden;
+        padding: 9px 14px 7px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .sortable-handle input {
+        margin-bottom: 0px;
+        /* height: 35px; */
+    }
+
+    .sortable-handle label {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .upload-image li>div {
+        margin-bottom: 30px !important;
+    }
+
+    .django-ckeditor-widget {
+        height: 100px !important;
+        /* Use !important to override CKEditor styles */
+    }
+
+    /* Adjust the height of the CKEditor iframe content */
+    .django-ckeditor-widget .tox-tinymce {
+        height: 130px !important;
+        width: 220px;
+    }

@@ -1,0 +1,115 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load i18n %}
+{% block dashboard_content %}
+
+<!-- Bootstrap CSS CDN Link -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product List Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <a href="{% url 'dashboard:catalogue-product-list' %}" class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h6 class="card-title">{% trans "Product List" %}</h6>
+                            <p class="card-text">{% trans "Browse Products" %}</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-lightbulb fa-2x"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Catalogue Category List Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <a href="{% url 'dashboard:catalogue-category-list' %}" class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h6 class="card-title">{% trans "Catalogue Category List" %}</h6>
+                            <p class="card-text">{% trans "Manage Categories" %}</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-list-alt fa-2x"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Enquiries Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-warning mb-3">
+                <a href="{% url 'dashboard:product-enquiries' %}" class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h6 class="card-title">{% trans "Enquiries" %}</h6>
+                            <p class="card-text">{% trans "Product enquiries" %}</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-thin fa-lightbulb fa-2x"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Testimonials Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <a href="{% url 'dashboard:testimonial-list' %}" class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h6 class="card-title">{% trans "Testimonials" %}</h6>
+                            <p class="card-text">{% trans "Manage testimonials" %}</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-thin fa-star fa-2x"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+                <!-- Clients Card -->
+                <div class="col-md-4">
+                    <div class="card text-white bg-secondary mb-3">
+                        <a href="{% url 'dashboard:clients-list' %}" class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h6 class="card-title">{% trans "Our Clients" %}</h6>
+                                    <p class="card-text">{% trans "Manage Clients" %}</p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-thin fa-user fa-2x"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .card-body {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-body:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
+
+{% endblock dashboard_content %}

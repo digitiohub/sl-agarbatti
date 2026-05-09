@@ -1,0 +1,458 @@
+/* Timeline Cards Styles */
+:root {
+  --card-primary: #ee3238;
+  --card-secondary: #565656;
+  --card-light: #fff;
+  --card-dark: #333;
+  --card-accent: #ee3238;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-gradient: linear-gradient(135deg, #ee3238 0%, #b83036 100%);
+  --card-radius: 12px;
+  --card-transition: all 0.3s ease;
+}
+
+/* Common Styles for All Card Designs */
+.timeline-cards-container {
+  position: relative;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.timeline-cards-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.timeline-cards-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--card-dark);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.timeline-cards-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--card-accent);
+}
+
+.timeline-cards-title p {
+  font-size: 18px;
+  color: var(--card-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.timeline-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--card-accent) #f1f1f1;
+}
+
+.timeline-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.timeline-scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--card-accent);
+  border-radius: 10px;
+}
+
+.timeline-cards-wrapper {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  min-width: max-content;
+}
+
+/* Navigation Controls */
+.timeline-nav-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.timeline-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--card-light);
+  border: 2px solid var(--card-accent);
+  color: var(--card-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--card-transition);
+}
+
+.timeline-nav-btn:hover {
+  background-color: var(--card-accent);
+  color: var(--card-light);
+}
+
+.timeline-nav-btn i {
+  font-size: 18px;
+}
+
+/* Card Design 1 - Modern Clean */
+.timeline-card-1 {
+  width: 300px;
+  background-color: var(--card-light);
+  border-radius: var(--card-radius);
+  box-shadow: 0 10px 20px var(--card-shadow);
+  overflow: hidden;
+  transition: var(--card-transition);
+  flex-shrink: 0;
+}
+
+.timeline-card-1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-card-1-header {
+  background-color: var(--card-accent);
+  color: var(--card-light);
+  padding: 20px;
+  text-align: center;
+}
+
+.timeline-card-1-year {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.timeline-card-1-title {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.timeline-card-1-body {
+  padding: 20px;
+}
+
+.timeline-card-1-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--card-secondary);
+}
+
+/* Card Design 2 - Gradient Style */
+.timeline-card-2 {
+  width: 300px;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 20px var(--card-shadow);
+  transition: var(--card-transition);
+  flex-shrink: 0;
+}
+
+.timeline-card-2:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-card-2-inner {
+  background-color: var(--card-light);
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-card-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--card-gradient);
+}
+
+.timeline-card-2-year {
+  display: inline-block;
+  background: var(--card-gradient);
+  color: var(--card-light);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.timeline-card-2-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--card-dark);
+  margin-bottom: 15px;
+}
+
+.timeline-card-2-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--card-secondary);
+}
+
+/* Card Design 3 - Minimalist */
+.timeline-card-3 {
+  width: 300px;
+  background-color: var(--card-light);
+  border-radius: var(--card-radius);
+  border-left: 4px solid var(--card-accent);
+  box-shadow: 0 10px 20px var(--card-shadow);
+  padding: 25px;
+  transition: var(--card-transition);
+  flex-shrink: 0;
+}
+
+.timeline-card-3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-card-3-year {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--card-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.timeline-card-3-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-dark);
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.timeline-card-3-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--card-accent);
+}
+
+.timeline-card-3-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--card-secondary);
+}
+
+/* Card Design 4 - Icon Style */
+.timeline-card-4 {
+  width: 300px;
+  background-color: var(--card-light);
+  border-radius: var(--card-radius);
+  box-shadow: 0 10px 20px var(--card-shadow);
+  padding: 25px;
+  position: relative;
+  transition: var(--card-transition);
+  flex-shrink: 0;
+}
+
+.timeline-card-4:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-card-4-icon {
+  position: absolute;
+  top: -20px;
+  left: 25px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--card-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--card-light);
+  font-size: 18px;
+  box-shadow: 0 5px 10px rgba(238, 50, 56, 0.3);
+}
+
+.timeline-card-4-year {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--card-accent);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.timeline-card-4-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--card-dark);
+  margin-bottom: 15px;
+}
+
+.timeline-card-4-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--card-secondary);
+}
+
+/* Card Design 5 - Photo Style */
+.timeline-card-5 {
+  width: 300px;
+  background-color: var(--card-light);
+  border-radius: var(--card-radius);
+  box-shadow: 0 10px 20px var(--card-shadow);
+  overflow: hidden;
+  transition: var(--card-transition);
+  flex-shrink: 0;
+}
+
+.timeline-card-5:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-card-5-image {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.timeline-card-5-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-card-5:hover .timeline-card-5-image img {
+  transform: scale(1.1);
+}
+
+.timeline-card-5-year {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--card-accent);
+  color: var(--card-light);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.timeline-card-5-body {
+  padding: 20px;
+}
+
+.timeline-card-5-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--card-dark);
+  margin-bottom: 15px;
+}
+
+.timeline-card-5-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--card-secondary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .timeline-cards-title h2 {
+    font-size: 28px;
+  }
+  
+  .timeline-cards-title p {
+    font-size: 16px;
+  }
+  
+  .timeline-card-1,
+  .timeline-card-2,
+  .timeline-card-3,
+  .timeline-card-4,
+  .timeline-card-5 {
+    width: 280px;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.fade-in-right {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  slagarbatti-web:
+    container_name: slagarbatti-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn --bind 0.0.0.0:8006 sl.wsgi:application"
+    volumes:
+      - .:/app
+    ports:
+      - "8006:8006"
+    env_file:
+      - .env
+    networks:
+      - slagarbatti-network
+
+networks:
+  slagarbatti-network:
+

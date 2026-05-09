@@ -1,0 +1,58 @@
+{% extends "sl/base.html" %} {% load static %}
+
+{% load image_tags %}
+
+
+{% block layout %}
+
+
+
+<div class="section-started">
+    <div class="container mt-5">
+        <div class="row">
+            {% for client in clients %}
+            {% if client.logo %}
+            <div class="col-12 col-md-6 col-lg-3  mb-5">
+                <img src="{{ client.logo.url }}" 
+                     alt="{{ client.name }}" 
+                     class="clients-logos img-fluid" 
+                     data-target="client_popup" 
+                     data-image="{{ client.logo.url }}" 
+                     data-title="{{ client.name }}"
+                     data-description="{{ client.description }}"
+                     onclick="openClientPopup(this)">
+            </div>
+            {% endif %}
+            {% endfor %%}
+        </div>
+    </div>
+</div>
+
+<div id="client_popup" class="popup">
+    <div class="popup-content row" style="border-radius: 10px;">
+        <span class="close-2" onclick="closeClientPopup('client_popup')">&times;</span>
+        <div class="col-12 col-lg-6">
+            <div class="d-flex justify-content-center align-items-center">
+                <img id="popupImage" src="{% static 'assets/images/services/service-1.jpg' %}" alt="Popup Image" class="sss">
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 content-scroll">
+            <h2 id="popupTitle">White Labelling</h2>
+            <p id="popupDescription">
+                Carefully consider the types of agarbatti to be offered, considering factors such as fragrance, size, and packaging.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- {{client.name}}
+
+
+
+{% if client.description %}
+{{client.description}}
+{% endif %} -->
+
+
+
+{% endblock %}

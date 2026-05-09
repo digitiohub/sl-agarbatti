@@ -1,0 +1,202 @@
+{% extends "sl/base.html" %}
+{% load static %}
+{% load image_tags %}
+
+
+
+{% block layout %}
+
+<div id="faqsection">
+    <div class="container mob-center mb-5">
+        <div class="row">
+            <div class="col-12 text-center" id="pagesection">
+                <h1>FAQ</h1>
+                <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p> -->
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-12">
+                <h2 class="faqheading m-0">General & Product Questions</h2>
+            </div>
+
+
+            <div class="col-12 col-lg-8">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#first" aria-expanded="true" aria-controls="first">
+                                Why should I choose S.L. Agarbatti products?
+                            </button>
+                        </h2>
+                        <div id="first" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>You will get assured quality and premium products at SL Agarbatti</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#second" aria-expanded="false" aria-controls="second">
+                                Where Can I Purchase S.L. Agarbatti Products?
+                            </button>
+                        </h2>
+                        <div id="second" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>You visit our website – <a href="https://shop.slagarbatti.com/"
+                                        class="text-decoration-none text-danger fw-bold"
+                                        target="_blank">shop.slagarbatti.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#third" aria-expanded="false" aria-controls="third">
+                                S.L Agarbatti Types of Products?
+                            </button>
+                        </h2>
+                        <div id="third" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We offer around 450+ products and 5 different categories- Agarbatti, Dhoop
+                                    stick, dhoop cone, pooja oil, Kapoor, bhimsen Kapoor, Sambrani Dhoop cups
+                                    (gaumata cup)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#four" aria-expanded="false" aria-controls="four">
+                                Price of Agarbatti Products?
+                            </button>
+                        </h2>
+                        <div id="four" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We have products starting from 5rs till 1000rs. (Prices for bulk orders are
+                                    negotiable)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#five" aria-expanded="false" aria-controls="five">
+                                S.L Best Fragrance Agarbatti?
+                            </button>
+                        </h2>
+                        <div id="five" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Although all our product is unique and has pleasant scent in it. When it
+                                    comes to our hero product our customers favorite – Brahmand nayak, Black
+                                    Cherry, Musk Melon, Pinapple, Swarg Range (ROLL PACK)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#six" aria-expanded="false" aria-controls="six">
+                                S.L Most Selling Products?
+                            </button>
+                        </h2>
+                        <div id="six" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Same as above, to be precise, Black Cherry, Musk Melon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#seven" aria-expanded="false" aria-controls="seven">
+                                What materials are used in SL Agarbatti products?
+                            </button>
+                        </h2>
+                        <div id="seven" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We use high-quality, natural ingredients, including medicinal aromatic herbs and fragrance oils extracted from flowers, ensuring a pure and soothing aroma.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#eight" aria-expanded="false" aria-controls="eight">
+                                Are your incense sticks eco-friendly?
+                            </button>
+                        </h2>
+                        <div id="eight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Yes, we are committed to sustainability and use eco-friendly materials and ethical practices in our manufacturing processes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#nine" aria-expanded="false" aria-controls="nine">
+                                Do you offer international shipping?
+                            </button>
+                        </h2>
+                        <div id="nine" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Yes, we have expanded into key international markets and offer shipping to various countries, including Europe, South Africa, Malaysia, and the USA.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#ten" aria-expanded="false" aria-controls="ten">
+                                Can I customize the fragrance or packaging of the incense sticks?
+                            </button>
+                        </h2>
+                        <div id="ten" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We offer customization options for bulk orders, including brand name, logo printing in any language, and creative packaging to meet your specific requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#eleven" aria-expanded="false" aria-controls="eleven">
+                                How can I place an order?
+                            </button>
+                        </h2>
+                        <div id="eleven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>You can place an order by contacting us through our website or reaching out to our customer service team at <a href="tel:+91 9773802420" class="faq-links">+91 9773802420</a> or <a href="mailto:slagarbatti@gmail.com" class="faq-links">slagarbatti@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-12 col-lg-4 ">
+                <div class="que-section sticky-content ">
+                    <h4>Have Any More Questions?</h4>
+                    <p>If you have any questions or concerns about our shipping policy, please don’t hesitate to
+                        contact our customer service team.</p>
+                    <form action="">
+                        <div>
+
+                            <b>We are always happy to help!</b>
+                        </div>
+                        <div class="text-center text-md-start">
+                        <button type="button" class="cssbuttons-io"><a href="{% url 'contact-us' %}">Contact
+                                Us</a></button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

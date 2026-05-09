@@ -1,0 +1,188 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load static %}
+{% load dashboard_tags %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+
+{% block body_class %}{{ block.super }} catalogue{% endblock %}
+
+{% block title %}
+{% trans "Products" %} | {{ block.super }}
+{% endblock %}
+
+
+{%  block sidebar %}
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-2 sidebar">
+            {% block dashboard_nav %}
+            {% dashboard_navigation user as nav_items %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bottom_nav_bar"
+                    aria-controls="bottom_nav_bar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="bottom_nav_bar">
+                    <ul class="navbar-nav flex-column">
+                        {% for item in nav_items %}
+                        <li class="nav-item {% if item.has_children %}dropdown{% endif %}">
+                            <a class="nav-link {% if item.has_children %}dropdown-toggle{% endif %}"
+                                href="{% if item.is_heading %}#{% else %}{{ item.url }}{% endif %}"
+                                {% if item.has_children %}id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" {% endif %}>
+                                {% if item.icon %}<i class="{{ item.icon }} mr-2"></i>{% endif %}
+                                {{ item.label }}
+                            </a>
+
+                            {% if item.has_children %}
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for subitem in item.children %}
+                                <a class="dropdown-item" href="{{ subitem.url }}">
+                                    {% if subitem.icon %}<i class="{{ subitem.icon }} mr-2"></i>{% endif %}
+                                    {{ subitem.label }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+            {% endblock %}
+        </aside>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+            {% block breadcrumbs %}
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {% trans "product-list" %}
+                    </li>
+                </ol>
+            </nav>
+            {% endblock %}
+            {% block dashboard_content %}
+
+            {% block create_product %}
+            <div class="table-header">
+                <h3><i class="fas fa-sitemap"></i> {% trans "Create new product" %}</h3>
+            </div>
+            <div class="card card-body">
+                <form action="{% url 'dashboard:catalogue-product-create' %}" method="get" class="form-inline">
+                    {% include "oscar/dashboard/partials/form_fields_inline.html" with form=productclass_form %}
+                    <button class="btn btn-primary add-btn" type="submit"
+                        data-loading-text="{% trans 'Submitting...' %}">
+                        <i class="fas fa-plus-circle"></i> {% trans "New Product" %}
+                    </button>
+                </form>
+            </div>
+            {% endblock %}
+
+            {% block search_products %}
+            <div class="table-header">
+                <h3><i class="fas fa-search"></i> {% trans "Search Products" %}</h3>
+            </div>
+            <div class="card card-body">
+                <form method="get" class="form-inline">
+                    {% comment %}
+                    Add the current query string to the search form so that the
+                    sort order is not reset when searching.
+                    {% endcomment %}
+                    {% for name, value in request.GET.items %}
+                    {% if name not in form.fields %}
+                    <input type="hidden" name="{{ name }}" value="{{ value }}" />
+                    {% endif %}
+                    {% endfor %}
+
+                    {% include "oscar/dashboard/partials/form_fields_inline.html" with form=form %}
+                    <button type="submit" class="btn btn-primary search" data-loading-text="{% trans 'Searching...' %}">
+                        <i class="fas fa-search"></i> {% trans "Search" %}
+                    </button>
+                </form>
+            </div>
+            {% endblock %}
+
+            {% if products %}
+            {% block product_list %}
+            <form method="post">
+                {% csrf_token %}
+                {% render_table products %}
+            </form>
+            <div class="modal fade" id="product-image-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="img-fluid mx-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock product_list %}
+            {% else %}
+            <p>{% trans "No products found." %}</p>
+            {% endif %}
+
+            <style>
+                .navbar-light {
+                    background-color: #f8f9fa;
+                    border-right: 1px solid #dee2e6;
+                }
+
+                .navbar-nav .nav-link {
+                    color: #495057;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                }
+
+                .navbar-nav .nav-link:hover,
+                .navbar-nav .nav-link:focus {
+                    background-color: #e9ecef;
+                    color: #343a40;
+                }
+
+                .navbar-nav .dropdown-menu {
+                    background-color: #f8f9fa;
+                    border: none;
+                    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+                }
+
+                .navbar-nav .dropdown-item {
+                    color: #495057;
+                    padding: 10px 20px;
+                }
+
+                .navbar-nav .dropdown-item:hover,
+                .navbar-nav .dropdown-item:focus {
+                    background-color: #e9ecef;
+                    color: #343a40;
+                }
+
+                .navbar-toggler {
+                    border: none;
+                }
+
+                .navbar-toggler:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            </style>
+            {% endblock dashboard_content %}
+
+        </main>
+        {%  endblock sidebar %}
+    </div>
+</div>
+
+{% block onbodyload %}
+{{ block.super }}
+oscar.dashboard.product_lists.init();
+{% endblock onbodyload %}

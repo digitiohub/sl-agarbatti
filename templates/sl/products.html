@@ -1,0 +1,138 @@
+{% extends "sl/base.html" %}
+{% load static %}
+{% load category_tags %}
+{% load image_tags %}
+
+{% block layout %}
+
+<div id="gallerypage">
+    <div class="container mob-end">
+        <div class="row">
+
+            <div class="col-12 text-center" id="pagesection">
+                {% if parent_category %}
+                <h1>{{ parent_category.name }}</h1>
+                {% elif main_category %}
+                <h1>{{ main_category.name }}</h1>
+                {% else %}
+                <h1>Products</h1>
+                {% endif %}
+            </div>
+
+            <div class="col-12">
+                <div class="tabgroup">
+                    <div class="tab-containers product-tab">
+                        {% for category in tab_categories %}
+                        {% if category == sub_category and third_level_categories %}
+                        <div class="btn-group">
+                            <a href="{% url 'products_sub_category' main_category_slug=main_category.slug sub_category_slug=category.slug %}"
+                                class="tab-items {% if category.slug == sub_category_slug %}active{% endif %}">
+                                {{ category.name }}
+                            </a>
+                            <!-- <button type="button" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu" id="third-layer">
+                                {% for third_category in third_level_categories %}
+                                <a class="dropdown-item"
+                                    href="{% url 'products_third_category' main_category_slug=main_category.slug sub_category_slug=sub_category.slug third_category_slug=third_category.slug %}">
+                                    {{ third_category.name }}
+                                </a>    
+                                {% endfor %}
+                            </div> -->
+                        </div>
+                        {% else %}
+                        <a href="{% url 'products_sub_category' main_category_slug=main_category.slug sub_category_slug=category.slug %}"
+                            class="tab-items {% if category.slug == sub_category_slug %}active{% endif %}">
+
+                            {{ category.name }}
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="products" id="product-details">
+    <div class="container mob-end">
+        <div class="row">
+            <div class="col-12">
+                {% for category in categories %}
+                <div class="tab-content-list {% if category == sub_category or category == main_category or category == third_category %}active{% endif %}"
+                    id="{{ category.slug }}">
+                    <div class="row">
+                        {% if product_info %}
+                        {% for product in product_info %}
+                        <div class="col-12 col-md-6 col-lg-4 mb-5">
+                            <div class="card product-box">
+                                <div class="card-body ">
+                                    <a href="{% url 'product-detail' product=product.slug %}">
+                                        {% if product.images.first %}
+                                        <img src="{{ product.images.first.original.url }}" alt="{{ product.title }}"
+                                            class="img-fluid card-imgs">
+                                        {% else %}
+                                        <img src="{{ not_found_img }}" alt="{{ product.title }}" class="img-fluid">
+                                        {% endif %}
+                                    </a>
+                                    <h1>{{ product.title }}</h1>
+                                    <p>
+                                        {% if product.description|length > 200 %}
+                                        {{ product.description|safe|slice:200 }}...
+                                        {% else %}
+                                        {{ product.description|safe }}
+                                        {% endif %}
+                                    </p>
+                                    <div class="text-center text-md-start mt-3">
+                                    <button type="button" class="cssbuttons-io productbtn">
+                                        <a href="{% url 'product-detail' product=product.slug %}">View More</a>
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="col-12">
+                            <h1 class="text-center">No Products Found</h1>
+                        </div>
+                        {% endif %}
+
+                        {% if product_info.has_other_pages %}
+                        <nav aria-label="..." id="paginations" style="position: relative; z-index: 5;">
+                            <ul class="pagination justify-content-center mt-5" >
+                                {% if product_info.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link"
+                                        href="?page={{ product_info.previous_page_number }}">Previous</a>
+                                </li>
+                                {% endif %}
+
+                                {% for num in product_info.paginator.page_range %}
+                                {% if num > product_info.number|add:'-3' and num < product_info.number|add:'3' %}
+                                <li class="page-item {% if num == product_info.number %}active{% endif %}">
+                                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+
+                                {% if product_info.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ product_info.next_page_number }}">Next</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

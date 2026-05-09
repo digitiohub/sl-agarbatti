@@ -1,0 +1,111 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load static %}
+{% load dashboard_tags %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+
+{% block body_class %}{{ block.super }} dashboard{% endblock %}
+
+{% block title %}
+{% trans "Enquiries" %} | {{ block.super }}
+{% endblock %}
+
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+
+
+            {% block dashboard_content %}
+            {% block breadcrumbs %}
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {% trans "Product enquiries" %}
+                    </li>
+                </ol>
+            </nav>
+            {% endblock %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% trans "First Name" %}</th>
+                            <th>{% trans "Last Name" %}</th>
+                            <th>{% trans "Email" %}</th>
+                            <th>{% trans "Phone" %}</th>
+                            <th>{% trans "City" %}</th>
+                            <th>{% trans "Country" %}</th>
+                            <th>{% trans "Subject" %}</th>
+                            <th>{% trans "Message" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for enquiry in enquiries %}
+                        <tr>
+                            <td>{{ enquiry.first_name }}</td>
+                            <td>{{ enquiry.last_name }}</td>
+                            <td>{{ enquiry.email }}</td>
+                            <td>{{ enquiry.phone }}</td>
+                            <td>{{ enquiry.city }}</td>
+                            <td>{{ enquiry.country }}</td>
+                            <td>{{ enquiry.subject }}</td>
+                            <td>{{ enquiry.message|linebreaksbr }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9">{% trans "No enquiries found." %}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if is_paginated %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1" aria-label="{% trans 'First' %}">
+                                <span aria-hidden="true">&laquo;&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                                aria-label="{% trans 'Previous' %}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% for num in page_obj.paginator.page_range %}
+                        <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+                                aria-label="{% trans 'Next' %}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"
+                                aria-label="{% trans 'Last' %}">
+                                <span aria-hidden="true">&raquo;&raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+            {% endblock %}
+        </main>
+    </div>
+</div>
+
+{% block onbodyload %}
+{{ block.super }}
+oscar.dashboard.product_lists.init();
+{% endblock onbodyload %}

@@ -1,0 +1,143 @@
+{% extends 'oscar/dashboard/layout.html' %}
+{% load category_tags %}
+{% load dashboard_tags %}
+{% load i18n %}
+{% load render_table from django_tables2 %}
+
+{% block body_class %}{{ block.super }} catalogue{% endblock %}
+
+{% block title %}
+{% trans "Categories" %} | {{ block.super }}
+{% endblock %}
+
+
+{% block header %}
+<div class="page-header">
+    <a href="{% url 'dashboard:catalogue-category-create' %}" class="btn btn-primary float-right add-btn"><i
+            class="fas fa-plus-circle"></i> {% trans "Create new category" %}</a>
+    <h1>{% trans "Categories" %}</h1>
+</div>
+{% endblock header %}
+
+
+{%  block sidebar %}
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-2 sidebar">
+            {% block dashboard_nav %}
+            {% dashboard_navigation user as nav_items %}
+            <nav class="navbar navbar-expand-lg">
+                <div class="collapse navbar-collapse" id="bottom_nav_bar">
+                    <ul class="navbar-nav flex-column">
+                        {% for item in nav_items %}
+                        <li class="nav-item {% if item.has_children %}dropdown{% endif %}">
+                            <a class="nav-link {% if item.has_children %}dropdown-toggle{% endif %}"
+                                href="{% if item.is_heading %}#{% else %}{{ item.url }}{% endif %}"
+                                {% if item.has_children %}id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" {% endif %}>
+                                {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
+                                {{ item.label }}
+                            </a>
+
+                            {% if item.has_children %}
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for subitem in item.children %}
+                                <a class="dropdown-item" href="{{ subitem.url }}">
+                                    {% if subitem.icon %}<i class="{{ subitem.icon }}"></i>{% endif %}
+                                    {{ subitem.label }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+            {% endblock %}
+        </aside>
+
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+
+            {% block breadcrumbs %}
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="{% url 'dashboard:index' %}">{% trans "Dashboard" %}</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {% trans "catogories-list" %}
+                    </li>
+                </ol>
+            </nav>
+            {% endblock %}
+
+            {% block dashboard_content %}
+            <div class="alert alert-info">
+                <div>{% trans "You are editing:" %}
+                    <strong><a href="{% url 'dashboard:catalogue-category-list' %}">{% trans "Home" %}</a></strong>
+                    {% if ancestors %}
+                    &gt;
+                    {% for ancestor in ancestors %}
+                    <strong><a
+                            href="{% url 'dashboard:catalogue-category-detail-list' pk=ancestor.pk %}">{{ ancestor.name }}</a></strong>{% if not forloop.last %}
+                    > {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            {% render_table categories %}
+
+            {% if not child_categories %}
+            <p>{% trans "There are no categories." %}</p>
+            {% endif %}
+
+            <style>
+                .navbar-light {
+                    background-color: #f8f9fa;
+                    border-right: 1px solid #dee2e6;
+                }
+
+                .navbar-nav .nav-link {
+                    color: #495057;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                }
+
+                .navbar-nav .nav-link:hover,
+                .navbar-nav .nav-link:focus {
+                    background-color: #e9ecef;
+                    color: #343a40;
+                }
+
+                .navbar-nav .dropdown-menu {
+                    background-color: #f8f9fa;
+                    border: none;
+                    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+                }
+
+                .navbar-nav .dropdown-item {
+                    color: #495057;
+                    padding: 10px 20px;
+                }
+
+                .navbar-nav .dropdown-item:hover,
+                .navbar-nav .dropdown-item:focus {
+                    background-color: #e9ecef;
+                    color: #343a40;
+                }
+
+                .navbar-toggler {
+                    border: none;
+                }
+
+                .navbar-toggler:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            </style>
+
+            {% endblock dashboard_content %}
+        </main>
+        {%  endblock sidebar %}

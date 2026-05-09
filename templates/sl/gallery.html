@@ -1,0 +1,852 @@
+{% extends "sl/base.html" %}
+{% load static %}
+{% load image_tags %}
+
+
+
+{% block layout %}
+
+<div id="gallerypage">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" id="pagesection">
+                <h1>Gallery</h1>
+                <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p> -->
+            </div>
+            <div class="col-12">
+                <div class="tabgroup">
+                    <div class="tab-containers">
+                        <div class="tab-items gallery-tab active" data-tab="All">All</div>
+                        <div class="tab-items gallery-tab" data-tab="Award">Award</div>
+                        <div class="tab-items gallery-tab" data-tab="Teams">Employee Team</div>
+                        <div class="tab-items gallery-tab" data-tab="Factory">Factory Machine</div>
+                        <div class="tab-items gallery-tab" data-tab="New-Factory">New Factory</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="image-section ">
+
+    <div class="container " id="show-images">
+        <div class="row mt-4 ">
+            <div class="col-12">
+                <div id="tab-content-group ">
+                    <!-- All -->
+                    <div class="tab-content-list active" id="All">
+                        <div class="row">
+                            <section class="gallery mt-5 ">
+                                <section class="p-0 container d-flex justify-content-center">
+                                    <div class="row d-flex">
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap ">
+                                                <img class="lightbox-enabled grayscale  bright-image "
+                                                    src="{% static 'assets/images/gallery/team-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-10.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-11.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-11.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-12.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-1.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                    
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-9.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-9.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-1.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-2.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-3.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-9.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-9.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-10.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-11.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-11.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-12.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-13.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-13.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-14.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-14.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-15.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-15.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-16.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-16.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-2.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-17.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-17.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-18.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-18.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-19.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-19.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-20.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-20.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-21.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-21.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-22.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-22.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-23.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-23.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-1.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-2.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-1.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-2.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-10.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-12.jpg' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Award -->
+                    <div class="tab-content-list" id="Award">
+                        <div class="row">
+                            <section class="gallery mt-5">
+                                <section class="p-0 container d-flex justify-content-center">
+                                    <div class="row d-flex">
+
+
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-1.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-2.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/award-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/award-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Team -->
+                    <div class="tab-content-list" id="Teams">
+                        <div class="row">
+                            <section class="gallery mt-5">
+                                <section class="p-0 container d-flex justify-content-center">
+                                    <div class="row d-flex">
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap ">
+                                                <img class="lightbox-enabled grayscale bright-image "
+                                                    src="{% static 'assets/images/gallery/team-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-10.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-11.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-11.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-12.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-1.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-9.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-9.jpg' %}">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Factory -->
+                    <div class="tab-content-list" id="Factory">
+                        <div class="row">
+                            <section class="gallery mt-5">
+                                <section class="p-0 container d-flex justify-content-center">
+
+                                    <div class="row d-flex">
+
+
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-1.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-2.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-3.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-9.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-9.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-10.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-11.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-11.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-12.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-13.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-13.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-14.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-14.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-15.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-15.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-16.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-16.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-2.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/team-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/team-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-17.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-17.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-18.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-18.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-19.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-19.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-20.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-20.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-21.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-21.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-22.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-22.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/factory-23.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/factory-23.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                        </div>
+                    </div>
+                    <!-- New Factory -->
+                    <div class="tab-content-list" id="New-Factory">
+                        <div class="row">
+                            <section class="gallery mt-5">
+                                <section class="p-0 container d-flex justify-content-center">
+
+                                    <div class="row d-flex">
+
+
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-1.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-1.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-2.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-2.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-3.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-3.jpg' %}">
+                                            </div>
+                                        </div>
+
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-4.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-4.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-5.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-5.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-6.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-6.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-7.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-7.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-8.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-8.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-10.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-10.jpg' %}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class=" col-12 col-md-4 mb-2">
+                                            <div class="lightbox_img_wrap">
+                                                <img class="lightbox-enabled grayscale bright-image"
+                                                    src="{% static 'assets/images/gallery/new-12.jpg' %}"
+                                                    data-imgsrc="{% static 'assets/images/gallery/new-12.jpg' %}">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                        </div>
+                    </div>
+
+                    <section class="lightbox-container">
+                        <span class="material-symbols-outlined material-icons lightbox-btn left" id="left"><i
+                                class="ri-arrow-left-s-line"></i></span>
+                        <span class="material-symbols-outlined material-icons lightbox-btn right" id="right"><i
+                                class="ri-arrow-right-s-line"></i></span>
+                        <span id="close" class="close material-icons material-symbols-outlined"></span>
+                        <div class="lightbox-image-wrapper">
+                            <img alt="lightboximage" class="lightbox-image">
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

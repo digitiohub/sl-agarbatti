@@ -1,0 +1,152 @@
+{% extends "oscar/layout_2_col.html" %}
+{% load static %}
+{% load basket_tags %}
+{% load category_tags %}
+{% load product_tags %}
+{% load i18n %}
+
+{% block title %}
+{% if summary %}{{ summary }} |{% endif %} {{ block.super }}
+{% endblock %}
+
+{% block headertext %}{{ summary }}{% endblock %}
+
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ homepage_url }}">{% trans "Home" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ summary }}</li>
+    </ol>
+</nav>
+{% endblock breadcrumbs %}
+
+{% block column_left %}
+{% category_tree as tree_categories %}
+{% if tree_categories %}
+<div>
+    <ul class="nav nav-list flex-column">
+        {% for tree_category in tree_categories %}
+        <div class="checkbox-container">
+            <li>
+                <a href="{{ tree_category.url }}">
+                    {% if tree_category.pk == category.pk %}
+                    <label class="containerss">{{ tree_category.name }}</label>
+                    {% else %}
+                    <label class="containerss">{{ tree_category.name }}</label>
+                    {% endif %}
+                </a>
+
+                {% if tree_category.has_children %}<ul>{% else %}
+            </li>{% endif %}
+            {% for n in tree_category.num_to_close %}
+    </ul>
+    </li>
+</div>
+{% endfor %}
+{% endfor %}
+</ul>
+</div>
+
+{% endif %}
+{% if has_facets %}
+<h4>{% trans "Refine by" %}</h4>
+<div class="side_categories card card-body bg-light">
+    {% for field, data in facet_data.items %}
+    {% if data.results %}
+    {% include 'oscar/search/partials/facet.html' with name=data.name items=data.results %}
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<form method="get" class="products_counts">
+    {# Render other search params as hidden inputs #}
+    {% for value in selected_facets %}
+    <input type="hidden" name="selected_facets" value="{{ value }}" />
+    {% endfor %}
+    <input type="hidden" name="q" value="{{ search_form.q.value|default_if_none:"" }}" />
+
+    {% if paginator.count %}
+    {% if paginator.num_pages > 1 %}
+    {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
+    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+    {% plural %}
+    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+    {% endblocktrans %}
+    {% else %}
+    {% blocktrans count num_results=paginator.count %}
+    <div class="total_prods">
+        <strong>{{ num_results }}</strong> result
+    </div>
+    {% plural %}
+    <div class="total_prods">
+        <strong>{{ num_results }}</strong> results
+    </div>
+    {% endblocktrans %}
+    {% endif %}
+    {% if form %}
+    <div class="float-right">
+        {% include "oscar/partials/form_field.html" with field=form.sort_by style='horizontal' %}
+    </div>
+    {% endif %}
+    {% else %}
+    <p>
+        <div class="no_prod_found">
+            {% trans "<strong>0</strong> results" %}
+        </div>
+    </p>
+    {% endif %}
+</form>
+
+{% if products %}
+<section>
+    <div class="row g-4 justify-content-center">
+        {% for product in products %}
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="collection-card">
+                <div class="offer-card">
+                    <!-- <span>Offer</span> -->
+                </div>
+                <div class="collection-img">
+
+                    <!-- <div class="view-dt-btn">
+                        <div class="plus-icon">
+                            <i class="bi bi-plus"></i>
+                        </div>
+                        <a href="/catalogue/{{product.slug}}_{{product.pk}}">View Details</a>
+                    </div> -->
+
+
+                    <ul class="cart-icon-list">
+                        <li><a href="/basket/"> <img src="{% static 'oscar/assets/images/icon/Icon-cart3.svg' %}"
+                                    alt></a>
+                        </li>
+
+                        <!-- <li><a href="#"><img src="{%static 'oscar/assets/images/icon/Icon-favorites3.svg' %}" alt></a>
+                        </li> -->
+
+                    </ul>
+                    <div class="collection-content text-center">
+                        <!-- <h4><a href="{% static url 'customer:catalogue' %}"></a></h4> -->
+                        {% render_product product %}
+                    </div>
+                    {% include "oscar/partials/pagination.html" %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+</section>
+{% else %}
+<p class="nonefound">{% trans "No products found." %}</p>
+{% endif %}
+
+{% endblock content %}
+
+{% block onbodyload %}
+{{ block.super }}
+oscar.search.init();
+{% endblock %}

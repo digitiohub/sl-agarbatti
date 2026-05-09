@@ -1,0 +1,125 @@
+{% extends "sl/base.html" %}
+{% load static %}
+{% load image_tags %}
+
+{% block layout %}
+
+<div id="contactform">
+    <div class="container mob-center">
+        <div class="row">
+            <div class="col-12 text-center carrer-section" id="pagesection">
+                <h1>Careers</h1>
+                <h2>Why work with us?</h2>
+            </div>
+            
+                <div class="col-12 col-lg-4 career-card mb-5">
+                    <img src="{% static 'assets/images/career/innovation.png' %}" alt="career-icons" class="img-fluid career-icons">
+                    <h3>Innovative Environment</h3>
+                    <p>Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem...</p>
+                </div>
+                <div class="col-12 col-lg-4 career-card mb-5">
+                    <img src="{% static 'assets/images/career/healthcare.png' %}" alt="career-icons" class="img-fluid career-icons">
+                    <h3>Healthcare</h3>
+                    <p>Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem...</p>
+                </div>
+                <div class="col-12 col-lg-4 career-card mb-5">
+                    <img src="{% static 'assets/images/career/work.png' %}" alt="career-icons" class="img-fluid career-icons">
+                    <h3>Flexible Environment</h3>
+                    <p>Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem...</p>
+       
+        </div>
+       
+    </div>
+    
+    <div class="opening-section" style="background-color: #F4F4F4;">
+        <div class="container d-flex justify-content-center">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item mt-5 mb-5">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed career-post-header" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#first" aria-expanded="false" aria-controls="first">
+                                    <img src="{% static 'assets/images/career/sales.png' %}" alt="position-image" class="post-image">
+                                    <div class="Career-position">
+                                        <h2>Factory Workers</h2>
+                                        <ul class="career-details">
+                                            <li><img src="{% static 'assets/images/career/map.png' %}" alt="">Mumbai</li>
+                                            <li><img src="{% static 'assets/images/career/clock.png' %}" alt="">Full time</li>
+                                            <li><img src="{% static 'assets/images/career/rupees.png' %}" alt="">10k (12th Pass)</li>
+                                            <!-- <li><img src="{% static 'assets/images/career/calendar.png' %}" alt="">29 min ago</li> -->
+                                        </ul>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="first" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body pt-0">
+                                    <p>Drop Your CV at <a href="mailto:Info@slagarbatti.com" class="cv-email"><b>Info@slagarbatti.com</b></a></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item mt-5 mb-5">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed career-post-header" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#second" aria-expanded="false" aria-controls="first">
+                                    <img src="{% static 'assets/images/career/sales-exective.png' %}" alt="position-image" class="post-image">
+                                    <div class="Career-position">
+                                        <h2>Sales Executive (Including all states of India) </h2>
+                                        <ul class="career-details">
+                                            <li><img src="{% static 'assets/images/career/map.png' %}" alt="">Mumbai</li>
+                                            <li><img src="{% static 'assets/images/career/clock.png' %}" alt="">Full time</li>
+                                            <li><img src="{% static 'assets/images/career/rupees.png' %}" alt="">15k (Any Graduate Degree and Excel proficiency )</li>
+                                            <!-- <li><img src="{% static 'assets/images/career/calendar.png' %}" alt="">29 min ago</li> -->
+                                        </ul>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="second" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body pt-0">
+                                    <p>Drop Your CV at <a href="mailto:Info@slagarbatti.com" class="cv-email"><b>Info@slagarbatti.com</b></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="accordion-item mt-5 mb-5">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed career-post-header" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#third" aria-expanded="false" aria-controls="first">
+                                    <img src="{% static 'assets/images/career/helper.png' %}" alt="position-image" class="post-image">
+                                    <div class="Career-position">
+                                        <h2>Back Office </h2>
+                                        <ul class="career-details">
+                                            <li><img src="{% static 'assets/images/career/map.png' %}" alt="">Mumbai</li>
+                                            <li><img src="{% static 'assets/images/career/clock.png' %}" alt="">Full time</li>
+                                            <li><img src="{% static 'assets/images/career/rupees.png' %}" alt="">13k (Excel, Tally, spoken English.)</li>
+                                            <!-- <li><img src="{% static 'assets/images/career/calendar.png' %}" alt="">29 min ago</li> -->
+                                        </ul>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="third" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body pt-0">
+                                    <p>Drop Your CV at <a href="mailto:Info@slagarbatti.com" class="cv-email"><b>Info@slagarbatti.com</b></a></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+{% endblock %}
