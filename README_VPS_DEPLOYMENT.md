@@ -1,5 +1,11 @@
 # SL Agarbatti VPS Deployment Guide
 
+Preferred path:
+
+- Docker-based VPS deployment: [README_DOCKER_DEPLOYMENT.md](README_DOCKER_DEPLOYMENT.md)
+
+This file keeps the manual (non-Docker) VPS deployment path as a fallback.
+
 This guide deploys the Django app on a Linux VPS using:
 
 - Python virtualenv
